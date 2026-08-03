@@ -1,0 +1,537 @@
+/* Modern Compliance Page Styling - Kwizera Shop */
+
+/* ---------------------------------- */
+/* Design Tokens / CSS Custom Props   */
+/* ---------------------------------- */
+:root {
+    --primary: #1E40AF;          /* Deep Royal Blue */
+    --primary-dark: #1E3A8A;     /* Dark Navy Blue */
+    --primary-light: #EFF6FF;    /* Light Ice Blue */
+    --accent: #2563EB;           /* Vivid Accent Blue */
+    --text-color: #1F2937;       /* Charcoal (high contrast) */
+    --text-muted: #4B5563;       /* Slate Gray */
+    --bg-main: #FFFFFF;          /* Clean White */
+    --bg-neutral: #F9FAFB;       /* Soft Light Gray for container backgrounds */
+    --border-color: #E5E7EB;     /* Light Divider border */
+    
+    /* Semantic Colors */
+    --danger: #DC2626;           /* Deletion Red */
+    --danger-light: #FEF2F2;
+    --warning: #D97706;          /* Retention Amber */
+    --warning-light: #FFFBEB;
+    --success: #059669;          /* Verified Green */
+    --success-light: #F0FDF4;
+
+    /* Shadow and Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    
+    /* Layout */
+    --container-width: 1040px;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', var(--font-sans);
+}
+
+/* ---------------------------------- */
+/* CSS Reset                          */
+/* ---------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-neutral);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------------------------------- */
+/* Header Component                   */
+/* ---------------------------------- */
+.header {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.app-icon {
+    font-size: 1.75rem;
+}
+
+.app-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-dark);
+    letter-spacing: -0.025em;
+}
+
+.navigation .nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.navigation .nav-link:hover {
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.navigation .nav-link:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ---------------------------------- */
+/* Main Content Layout                */
+/* ---------------------------------- */
+.main-content {
+    padding: 3rem 1.5rem;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* ---------------------------------- */
+/* Hero Section                       */
+/* ---------------------------------- */
+.hero-section {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------- */
+/* Grid Layout                        */
+/* ---------------------------------- */
+.grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------------------------------- */
+/* Card Component                     */
+/* ---------------------------------- */
+.card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    font-size: 1.25rem;
+}
+
+.card-icon.success-icon {
+    background-color: var(--danger-light);
+    color: var(--danger);
+}
+
+.card-icon.warning-icon {
+    background-color: var(--warning-light);
+    color: var(--warning);
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------------------------------- */
+/* Steps List                         */
+/* ---------------------------------- */
+.step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step-list li {
+    display: flex;
+    gap: 1rem;
+}
+
+.step-num {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--bg-main);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.step-content {
+    font-size: 0.95rem;
+}
+
+.step-content p {
+    margin-bottom: 0.5rem;
+}
+
+.email-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.email-link:hover {
+    color: var(--primary-dark);
+}
+
+.nested-list {
+    margin-top: 0.5rem;
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ---------------------------------- */
+/* Custom Lists                       */
+/* ---------------------------------- */
+.bullet-list, .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.bullet-list li {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.bullet-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.25rem;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.25rem;
+    top: -2px;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.75rem;
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0.25rem;
+    color: var(--warning);
+    font-weight: bold;
+    font-size: 1rem;
+    top: 0;
+}
+
+/* Data Will Be Deleted Badges */
+.badge-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.badge-danger {
+    background-color: var(--danger-light);
+    color: var(--danger);
+    border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.badge-desc {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 0.25rem;
+}
+
+/* ---------------------------------- */
+/* Info Boxes & Action Panels         */
+/* ---------------------------------- */
+.action-box {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-main);
+    border: 1px solid var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.retention-info-box {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    background-color: var(--warning-light);
+    border-left: 4px solid var(--warning);
+}
+
+.retention-info-box strong {
+    display: block;
+    color: #92400e;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.retention-info-box p {
+    font-size: 0.9rem;
+    color: #78350f;
+    line-height: 1.45;
+}
+
+/* ---------------------------------- */
+/* Contact Section                    */
+/* ---------------------------------- */
+.contact-section {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    margin-top: 3rem;
+}
+
+.contact-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.contact-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact-value a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------- */
+/* Footer Component                   */
+/* ---------------------------------- */
+.footer {
+    background-color: var(--primary-dark);
+    color: #EFF6FF;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-subtext {
+    font-size: 0.85rem !important;
+    opacity: 0.7;
+}
+
+.footer-subtext code {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* ---------------------------------- */
+/* Accessibility & Focus Outline      */
+/* ---------------------------------- */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Media query adjustment for smaller mobile screens */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    .main-content {
+        padding: 2rem 1rem;
+    }
+}
